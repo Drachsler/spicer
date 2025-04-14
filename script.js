@@ -1,4 +1,4 @@
-console.log("E");
+console.log("F");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = docSnap.data();
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
 
-        pinInput.addEventListener('input', () => {
+        input.addEventListener('input', () => {
           errorBox.classList.add('hidden');
           errorBox.classList.remove('shake');
           input.disabled = false;
