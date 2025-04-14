@@ -19,5 +19,5 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     name: "Stefan Test",
     email: "max@example.com"
   });
-  alert("Daten gespeichert:1");
+  alert("Daten gespeichert: 1");
 });
