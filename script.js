@@ -1,7 +1,7 @@
+console.log("B");
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-// 🔥 Hier deine eigene Firebase-Konfiguration einfügen
 const firebaseConfig = {
   apiKey: "AIzaSyAOiHCgQbf9SZWp3twFuXNwa5qrIDDZhis",
   authDomain: "spicer-f7df5.firebaseapp.com",
@@ -14,19 +14,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-console.log("B");
-
 document.addEventListener('DOMContentLoaded', async () => {
   const input = document.getElementById('user-pin');
   const button = document.getElementById('submitBtn');
   const errorBox = document.getElementById('errorMessage');
-
   
   const params = new URLSearchParams(window.location.search);
   const spiceId = params.get('id');
 
   if (!spiceId) {
-    showError("No spice found");
+    showError("No spice found", true);
     return;
   }
 
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (docSnap.exists()) {
         const data = docSnap.data();
-        console.log("🔥 Firestore-Daten:", data);
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
         
         button.addEventListener('click', async () => {
