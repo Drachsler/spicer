@@ -14,6 +14,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const params = new URLSearchParams(window.location.search);
+  const spiceId = params.get('id');
+
+  if (spiceId) {
+    const docRef = doc(db, "spices", spiceId);
+
+    try {
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        console.log("🔥 Firestore-Daten:", data);
+        document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
+      } else {
+        console.warn("❌ Kein Dokument mit dieser ID gefunden.");
+      }
+    } catch (error) {
+      console.error("🔥 Fehler beim Abruf:", error);
+    }
+  }
+});
+
+
+/*
+
+const params = new URLSearchParams(window.location.search);
+const spiceId = params.get('id');
+
 document.getElementById("saveBtn").addEventListener("click", async () => {
   await setDoc(doc(db, "users", "user1"), {
     name: "Stefan Test",
@@ -21,3 +51,4 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   });
   alert("Daten gespeichert: 1");
 });
+*/
