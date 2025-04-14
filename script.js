@@ -14,7 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-console.log("A");
+console.log("B");
 
 document.addEventListener('DOMContentLoaded', async () => {
   const input = document.getElementById('user-pin');
@@ -55,14 +55,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (userSnap.exists()) {
               const userData = userSnap.data();
-              console.log("✅ Benutzer gefunden:", userData);
-              // Weiterleitung oder Anzeige hier
-              alert(`Willkommen, ${userData.name}`);
-              // Beispiel: Weiterleitung mit user-id
+              console.log("✅ Benutzer gefunden:", userData.lastOnline);
+              const sessionUser = {
+                spiceId: spiceId,
+                userId: userDocRef.id,
+                name: userData.name,
+                status: userData.status,
+                lastOnline: userData.lastOnline
+              };
+              sessionStorage.setItem("sessionUser", JSON.stringify(sessionUser));
               // window.location.href = `details.html?id=${spiceId}&user=${enteredPin}`;
             } else {
               console.warn("❌ Kein Benutzer mit diesem PIN gefunden");
-              showError("No user found",true);
+              showError("No user found",false);
             }
           } catch (error) {
             console.error("🔥 Fehler beim Abruf:", error);
