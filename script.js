@@ -44,14 +44,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       showError("This does not compute");
     }
   }
-});
 
+  
 function showError(message) {
     input.disabled = true;
     button.disabled = true;
     errorBox.textContent = message;
     errorBox.classList.remove("hidden");
   }
+});
+
 
 /*
 
