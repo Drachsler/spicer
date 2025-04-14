@@ -16,8 +16,8 @@ const db = getFirestore(app);
 
 document.getElementById("saveBtn").addEventListener("click", async () => {
   await setDoc(doc(db, "users", "user1"), {
-    name: "Max1 Mustermann1",
+    name: "Stefan Test",
     email: "max@example.com"
   });
-  alert("Daten gespeichert!");
+  alert("Daten gespeichert:1");
 });
