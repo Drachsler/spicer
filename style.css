@@ -48,3 +48,18 @@ body {
 button:hover {
   background-color: var(--color-accent-hover);
 }
+
+.error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ffe6e6;
+  color: #a80000;
+  border: 1px solid #ffb3b3;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
