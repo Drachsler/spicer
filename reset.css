@@ -1,4 +1,18 @@
 /* ===== CSS Reset (Mobile-First & Modern) ===== */
+
+:root {
+  --color-primary: #d72638;       /* kräftiges, warmes Rot */
+  --color-primary-dark: #8c1c24;  /* dunkler Rotton für Verläufe */
+  --color-accent: #f46036;        /* orangiger Akzent (für Buttons) */
+  --color-accent-hover: #c6482d;  /* dunklerer Button-Hover */
+  --color-text: white;
+  
+  --padding-base: 1rem;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --font-size-base: 1.2rem;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +26,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
