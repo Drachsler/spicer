@@ -1,4 +1,4 @@
-console.log("C");
+console.log("D");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
           } catch (error) {
             console.error("🔥 Fehler beim Abruf:", error);
-            showError("This does not compute",true);
+            showError("This does not compute1",true);
           }
         });
       } else {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     } catch (error) {
       console.error("🔥 Fehler beim Abruf:", error);
-      showError("This does not compute",true);
+      showError("This does not compute2",true);
     }
   }
 
