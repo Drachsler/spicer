@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--padding-base);
+  text-align: center;
+}
+
+#user-pin {
+  width: 100%;
+  padding: var(--padding-base);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--padding-base);
+  box-shadow: var(--box-shadow);
+  background:#fff;
+}
+
+#submitBtn {
+  width: 100%;
+  padding: var(--padding-base);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
+}
