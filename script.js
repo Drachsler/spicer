@@ -1,4 +1,4 @@
-console.log("D");
+console.log("E");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         pinInput.addEventListener('input', () => {
           errorBox.classList.add('hidden');
           errorBox.classList.remove('shake');
-          pinInput.disabled = false;
+          input.disabled = false;
           button.disabled = false;
         });
         
