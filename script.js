@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("🔥 Firestore-Daten:", data);
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
       } else {
-        console.warn("❌ No spice found");
+        console.warn("❌ No spice founda");
         showError("No spice found");
       }
     } catch (error) {
