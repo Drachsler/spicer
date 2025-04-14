@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (docSnap.exists()) {
         const data = docSnap.data();
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
+
+        pinInput.addEventListener('input', () => {
+          errorBox.classList.add('hidden');
+          pinInput.disabled = false;
+          button.disabled = false;
+        });
         
         button.addEventListener('click', async () => {
           const enteredPin = input.value.trim();
