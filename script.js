@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         pinInput.addEventListener('input', () => {
           errorBox.classList.add('hidden');
+          errorBox.classList.remove('shake');
           pinInput.disabled = false;
           button.disabled = false;
         });
@@ -92,6 +93,12 @@ function showError(message, disabled) {
     button.disabled = disabled;
     errorBox.textContent = message;
     errorBox.classList.remove("hidden");
+  
+    // Shake-Klasse hinzufügen und nach Animation wieder entfernen
+    errorBox.classList.add("shake");
+    setTimeout(() => {
+      errorBox.classList.remove("shake");
+    }, 400); // muss zur Animationsdauer passen
   }
 });
 
