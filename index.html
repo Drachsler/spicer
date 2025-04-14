@@ -3,33 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meine Firebase-Webseite</title>
+  <title>Spicey</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta name="theme-color" content="#ffffff">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="style.css">
   <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: sans-serif;
-      padding: 1rem;
-      max-width: 600px;
-      margin: auto;
-      background-color: #f9f9f9;
-    }
-  </style>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Firebase Test: 2</h1>
-  <button id="saveBtn">Daten speichern</button>
+  <main>
+    <div class="container">
+      <input type="text" id="user-pin" placeholder="Pin eingeben">
+      <button id="submitBtn">Senden</button>
+    </div>
+  </main>
   <script type="module" src="script.js"></script>
 </body>
 </html>
