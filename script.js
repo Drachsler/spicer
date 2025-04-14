@@ -3,12 +3,12 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10
 
 // 🔥 Hier deine eigene Firebase-Konfiguration einfügen
 const firebaseConfig = {
-  apiKey: "DEIN_API_KEY",
-  authDomain: "DEIN_AUTH_DOMAIN",
-  projectId: "DEIN_PROJECT_ID",
-  storageBucket: "DEIN_BUCKET",
-  messagingSenderId: "DEIN_MSG_ID",
-  appId: "DEINE_APP_ID"
+  apiKey: "AIzaSyAOiHCgQbf9SZWp3twFuXNwa5qrIDDZhis",
+  authDomain: "spicer-f7df5.firebaseapp.com",
+  projectId: "spicer-f7df5",
+  storageBucket: "spicer-f7df5.firebasestorage.app",
+  messagingSenderId: "745558921292",
+  appId: "1:745558921292:web:f741a662ad2c1f9fbf64e9"
 };
 
 const app = initializeApp(firebaseConfig);
