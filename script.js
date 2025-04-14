@@ -17,6 +17,11 @@ const db = getFirestore(app);
 
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const input = document.getElementById('user-pin');
+  const button = document.getElementById('submitBtn');
+  const errorBox = document.getElementById('errorMessage');
+
+  
   const params = new URLSearchParams(window.location.search);
   const spiceId = params.get('id');
 
@@ -31,13 +36,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("🔥 Firestore-Daten:", data);
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
       } else {
-        console.warn("❌ Kein Dokument mit dieser ID gefunden.");
+        console.warn("❌ No spice found");
+        showError("No spice found");
       }
     } catch (error) {
       console.error("🔥 Fehler beim Abruf:", error);
+      showError("This does not compute");
     }
   }
 });
+
+function showError(message) {
+    input.disabled = true;
+    button.disabled = true;
+    errorBox.textContent = message;
+    errorBox.classList.remove("hidden");
+  }
 
 /*
 
