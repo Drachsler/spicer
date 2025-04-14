@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 lastOnline: userData.lastOnline
               };
               sessionStorage.setItem("sessionUser", JSON.stringify(sessionUser));
-              window.location.href = "details.html";
+              window.location.href = "start.html";
             } else {
               console.warn("❌ Kein Benutzer mit diesem PIN gefunden");
               showError("No user found",false);
