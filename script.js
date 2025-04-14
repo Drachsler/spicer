@@ -14,7 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
+console.log("A");
 
 document.addEventListener('DOMContentLoaded', async () => {
   const input = document.getElementById('user-pin');
@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   const params = new URLSearchParams(window.location.search);
   const spiceId = params.get('id');
+
+  if (!spiceId) {
+    showError("No spice found");
+    return;
+  }
 
   if (spiceId) {
     const docRef = doc(db, "spices", spiceId);
@@ -35,20 +40,49 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = docSnap.data();
         console.log("🔥 Firestore-Daten:", data);
         document.body.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(data, null, 2)}</pre>`);
+        
+        button.addEventListener('click', async () => {
+          const enteredPin = input.value.trim();
+          if (!enteredPin) {
+            showError("Bitte einen PIN eingeben",false);
+            return;
+          }
+          // Greife auf Dokument mit ID = PIN zu
+          const userDocRef = doc(db, "spices", spiceId, "user", enteredPin);
+
+          try {
+            const userSnap = await getDoc(userDocRef);
+
+            if (userSnap.exists()) {
+              const userData = userSnap.data();
+              console.log("✅ Benutzer gefunden:", userData);
+              // Weiterleitung oder Anzeige hier
+              alert(`Willkommen, ${userData.name}`);
+              // Beispiel: Weiterleitung mit user-id
+              // window.location.href = `details.html?id=${spiceId}&user=${enteredPin}`;
+            } else {
+              console.warn("❌ Kein Benutzer mit diesem PIN gefunden");
+              showError("No user found",true);
+            }
+          } catch (error) {
+            console.error("🔥 Fehler beim Abruf:", error);
+            showError("This does not compute",true);
+          }
+        });
       } else {
-        console.warn("❌ No spice founda");
-        showError("No spice found");
+        console.warn("❌ No spice found");
+        showError("No spice found",true);
       }
     } catch (error) {
       console.error("🔥 Fehler beim Abruf:", error);
-      showError("This does not compute");
+      showError("This does not compute",true);
     }
   }
 
   
-function showError(message) {
-    input.disabled = true;
-    button.disabled = true;
+function showError(message, disabled) {
+    input.disabled = disabled;
+    button.disabled = disabled;
     errorBox.textContent = message;
     errorBox.classList.remove("hidden");
   }
